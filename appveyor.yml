@@ -23,8 +23,13 @@ test_script:
   # WTF 2 (extra space at the end AND quotes)
   #   filename is >>>"C:\projects\file-check-win\index.js" <<<
 
+  - set FILE="C:\projects\file-check-win\index.js"
+  - node .
+
   - set FILE=C:\projects\file-check-win\index.js
   - node .
+  # ok, working as expected
+  #   filename is >>>C:\projects\file-check-win\index.js<<<
 
 # Don't actually build.
 build: off
