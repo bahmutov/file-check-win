@@ -13,7 +13,7 @@ install:
   - npm ci
 
 test_script:
-  - set FILE=C:\\projects\\file-check-win\\index.js && node .
+  - set FILE='C:\projects\file-check-win\index.js' && node .
 
 # Don't actually build.
 build: off
