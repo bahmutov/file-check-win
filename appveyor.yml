@@ -13,9 +13,18 @@ install:
   - npm ci
 
 test_script:
-  # WTF the FILE will be "C:\projects\file-check-win\index.js "
-  # - set FILE=C:\projects\file-check-win\index.js && node .
+  # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/set_1
+
+  - set FILE=C:\projects\file-check-win\index.js && node .
+  # WTF 1 (extra space at the end)
+  #   filename is >>>C:\projects\file-check-win\index.js <<<
+
   - set FILE="C:\projects\file-check-win\index.js" && node .
+  # WTF 2 (extra space at the end AND quotes)
+  #   filename is >>>"C:\projects\file-check-win\index.js" <<<
+
+  - set FILE=C:\projects\file-check-win\index.js
+  - node .
 
 # Don't actually build.
 build: off
