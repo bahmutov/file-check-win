@@ -1,0 +1,17 @@
+# https://www.appveyor.com/docs/lang/nodejs-iojs/
+environment:
+  # use matching version of Node.js
+  nodejs_version: "8.9.3"
+
+platform:
+  - x86
+
+install:
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - npm ci
+
+test_script:
+  - node .
+
+# Don't actually build.
+build: off
