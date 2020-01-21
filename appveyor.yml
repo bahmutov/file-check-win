@@ -1,15 +1,17 @@
 # https://www.appveyor.com/docs/lang/nodejs-iojs/
 environment:
   # use matching version of Node.js
-  nodejs_version: "8.9.3"
+  nodejs_version: "12"
 
 platform:
   - x86
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
+  # Microsoft Edge browser version
+  - edge --version
   # upgrade npm
-  - npm install -g npm@6
+  - npm install -g npm@latest
   - npm ci
 
 test_script:
